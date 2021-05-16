@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: janusserver
+  name: janusserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: janusserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: janusserver
+    spec:
+      containers:
+      - image: janus-webrtc-server
+        name: janus-webrtc-server
+        imagePullPolicy: Never
+        resources: {}
+        ports:
+          - name: port8188
+            containerPort: 8188
+          - name: port8088
+            containerPort: 8088
+          - name: port8089
+            containerPort: 8089
+          - name: port8889
+            containerPort: 8889
+          - name: port8000
+            containerPort: 8000
+          - name: port7088
+            containerPort: 7088
+          - name: port7089
+            containerPort: 7089
+          - name: portudp
+            containerPort: 10000
+status: {}
